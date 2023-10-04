@@ -1,0 +1,53 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+  "id": "d22aedfd-071e-4112-86f0-48e96156ad26",
+  "name": "DeleteGitHubComment",
+  "friendlyName": "Delete GitHub Comment",
+  "description": "Delete comment(s) from a GitHub PR that contains a specified string",
+  "helpMarkDown": "",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "author": "haakemon",
+  "preview": true,
+  "version": {
+    "Major": 0,
+    "Minor": 0,
+    "Patch": 1
+  },
+  "demands": [],
+  "inputs": [
+    {
+      "name": "gitHubConnection",
+      "type": "connectedService:github:OAuth,PersonalAccessToken,InstallationToken,Token",
+      "label": "GitHub connection (OAuth or PAT)",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Specify the name of the GitHub service connection to use to connect to the GitHub repository. The connection must be based on a GitHub user's OAuth or a GitHub personal access token. Learn more about service connections [here](https://aka.ms/AA3am5s)."
+    },
+    {
+      "name": "includesString",
+      "type": "string",
+      "label": "String to match",
+      "required": false,
+      "helpMarkDown": "Any comment that includes the string will be deleted"
+    }
+  ],
+  "dataSourceBindings": [
+    {
+      "target": "repositoryName",
+      "endpointId": "$(gitHubConnection)",
+      "dataSourceName": "UserRepositories",
+      "resultTemplate": "{ \"Value\" : \"{{full_name}}\", \"DisplayValue\" : \"{{full_name}}\" }"
+    }
+  ],
+  "instanceNameFormat": "Deleting GitHub comment(s)",
+  "execution": {
+    "Node": {
+      "target": "main.js",
+      "argumentFormat": ""
+    }
+  }
+}

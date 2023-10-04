@@ -1,0 +1,36 @@
+{
+  "manifestVersion": 1,
+  "id": "github-pr-comment-delete",
+  "name": "GitHub PR Comment Delete",
+  "version": "0.0.1",
+  "publisher": "haakemon",
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "description": "Automatically deletes a comment on a GitHub PR that includes a specified string",
+  "categories": [
+    "Azure Pipelines"
+  ],
+  "icons": {
+    "default": "images/extension-icon.png"
+  },
+  "files": [
+    {
+      "path": "src"
+    }
+  ],
+  "contributions": [
+    {
+      "id": "custom-delete-comment-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "src"
+      }
+    }
+  ]
+}
