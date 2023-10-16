@@ -1,9 +1,11 @@
 {
-  "name": "github-comment-delete",
-  "version": "0.0.1",
+  "name": "github-add-comment-if-not-exist",
+  "version": "0.1.1",
   "main": "main.js",
+  "type": "module",
   "dependencies": {
     "azure-pipelines-task-lib": "4.6.0",
+    "got": "13.0.0",
     "typed-rest-client": "1.8.11"
   },
   "devDependencies": {
@@ -11,6 +13,7 @@
     "@types/node": "20.8.2",
     "@types/q": "1.5.6",
     "@types/uuid": "9.0.4",
+    "prettier": "3.0.3",
     "tfx-cli": "0.16.0",
     "typescript": "5.2.2"
   }
