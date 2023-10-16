@@ -4,8 +4,7 @@
     "lib": ["es2021"],
     "noPropertyAccessFromIndexSignature": false,
     "isolatedModules": true,
-    "module": "node16" /* Specify what module code is generated. */,
-    "moduleResolution": "Node16",
+    "module": "CommonJS" /* Specify what module code is generated. */,
     "rootDir": "./" /* Specify the root folder within your source files. */,
     "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */,
     "allowSyntheticDefaultImports": true, // To provide backwards compatibility, Node.js allows you to import most CommonJS packages with a default import. This flag tells TypeScript that it's okay to use import on CommonJS modules.

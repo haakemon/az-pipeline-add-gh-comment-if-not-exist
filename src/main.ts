@@ -1,4 +1,3 @@
-// @ts-ignore
 import * as tl from 'azure-pipelines-task-lib/task';
 import * as path from 'path';
 import got from 'got';
@@ -69,7 +68,9 @@ const writeComment = async ({
 }) => {
   const url = `https://api.github.com/repos/${repositoryName}/issues/${id}/comments`;
   const options = {
-    body: comment,
+    json: {
+      body: comment,
+    },
     headers: {
       Authorization: `token ${token}`,
       'Content-Type': 'application/json',
