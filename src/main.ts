@@ -1,15 +1,23 @@
-import * as tl from 'azure-pipelines-task-lib/task';
-import * as path from 'path';
+import {join} from 'node:path';
+import {
+  setResult,
+  getVariable,
+  getInput,
+  debug,
+  setResourcePath,
+  getEndpointAuthorization,
+  TaskResult,
+} from 'azure-pipelines-task-lib';
 import got from 'got';
 
-tl.setResourcePath(path.join(__dirname, 'task.json'));
+setResourcePath(join(__dirname, 'task.json'));
 
 function getGithubEndPointToken(githubEndpoint: string): string {
-  const githubEndpointObject = tl.getEndpointAuthorization(githubEndpoint, false);
+  const githubEndpointObject = getEndpointAuthorization(githubEndpoint, false);
   let githubEndpointToken: string | undefined = undefined;
 
   if (!!githubEndpointObject) {
-    tl.debug('Endpoint scheme: ' + githubEndpointObject.scheme);
+    debug('Endpoint scheme: ' + githubEndpointObject.scheme);
 
     if (githubEndpointObject.scheme === 'PersonalAccessToken') {
       githubEndpointToken = githubEndpointObject.parameters.accessToken;
@@ -85,23 +93,23 @@ const writeComment = async ({
 };
 
 const run = async (): Promise<void> => {
-  const endpointId = tl.getInput('gitHubConnection', true);
+  const endpointId = getInput('gitHubConnection', true);
   if (!endpointId) {
     throw new Error('Could not determine endpointId');
   }
   const token = getGithubEndPointToken(endpointId);
 
-  const repositoryName = tl.getVariable('Build.Repository.Name');
+  const repositoryName = getVariable('Build.Repository.Name');
   if (!repositoryName) {
     throw new Error('Could not determine Build.Repository.Name');
   }
 
-  if (!tl.getVariable('Build.SourceBranch') && !tl.getVariable('Build.SourceBranch')!.startsWith('refs/pull/')) {
+  if (!getVariable('Build.SourceBranch') && !getVariable('Build.SourceBranch')!.startsWith('refs/pull/')) {
     throw new Error('Could not determine Build.SourceBranch');
   }
-  const id = tl.getVariable('Build.SourceBranch')!.split('/')[2]!;
+  const id = getVariable('Build.SourceBranch')!.split('/')[2]!;
 
-  const commentToPost = tl.getInput('comment');
+  const commentToPost = getInput('comment');
   if (!commentToPost) {
     throw new Error('Could not determine comment');
   }
@@ -123,5 +131,5 @@ const run = async (): Promise<void> => {
 };
 
 run()
-  .then(() => tl.setResult(tl.TaskResult.Succeeded, ''))
-  .catch((error: Error) => tl.setResult(tl.TaskResult.Failed, error.message));
+  .then(() => setResult(TaskResult.Succeeded, ''))
+  .catch((error: Error) => setResult(TaskResult.Failed, error.message));

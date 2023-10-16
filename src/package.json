@@ -2,9 +2,10 @@
   "name": "github-add-comment-if-not-exist",
   "version": "0.1.1",
   "main": "main.js",
+  "type": "module",
   "dependencies": {
     "azure-pipelines-task-lib": "4.6.0",
-    "got": "11.8.6",
+    "got": "13.0.0",
     "typed-rest-client": "1.8.11"
   },
   "devDependencies": {
