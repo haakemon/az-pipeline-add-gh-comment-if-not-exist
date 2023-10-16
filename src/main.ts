@@ -1,4 +1,3 @@
-import {join} from 'node:path';
 import {
   setResult,
   getVariable,
@@ -10,7 +9,7 @@ import {
 } from 'azure-pipelines-task-lib';
 import got from 'got';
 
-setResourcePath(join(__dirname, 'task.json'));
+setResourcePath(new URL('task.json', import.meta.url).pathname);
 
 function getGithubEndPointToken(githubEndpoint: string): string {
   const githubEndpointObject = getEndpointAuthorization(githubEndpoint, false);
