@@ -115,7 +115,7 @@ const run = async (): Promise<void> => {
 
     const comments = await getComments({repositoryName, prId, token});
     const hasComment = comments.some((githubCommentEntry: any) => {
-      const hasText = githubCommentEntry.body.includes(commentToPost);
+      const hasText = githubCommentEntry.body === commentToPost;
 
       return hasText;
     });
