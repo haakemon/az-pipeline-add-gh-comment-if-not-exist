@@ -103,10 +103,13 @@ const run = async (): Promise<void> => {
     throw new Error('Could not determine Build.Repository.Name');
   }
 
+  console.log('repositoryName:', repositoryName);
+
   if (!getVariable('Build.SourceBranch') && !getVariable('Build.SourceBranch')!.startsWith('refs/pull/')) {
     throw new Error('Could not determine Build.SourceBranch');
   }
   const id = getVariable('Build.SourceBranch')!.split('/')[2]!;
+  console.log('Build.SourceBranch:', id);
 
   const commentToPost = getInput('comment');
   if (!commentToPost) {
@@ -123,6 +126,7 @@ const run = async (): Promise<void> => {
   if (hasComment) {
     console.log('Comment already exists, skipping add comment');
   } else {
+    console.log(`Wrote comment to ${repositoryName}/${id}`);
     await writeComment({repositoryName, id, token, comment: commentToPost});
   }
 
