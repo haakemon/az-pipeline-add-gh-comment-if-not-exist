@@ -40,14 +40,14 @@ function getGithubEndPointToken(githubEndpoint: string): string {
 
 const getComments = async ({
   repositoryName,
-  id,
+  prId,
   token,
 }: {
   repositoryName: string;
-  id: string;
+  prId: string;
   token: string;
 }): Promise<Record<string, any>> => {
-  const url = `https://api.github.com/repos/${repositoryName}/issues/${id}/comments`;
+  const url = `https://api.github.com/repos/${repositoryName}/issues/${prId}/comments?per_page=100`;
   const options = {
     headers: {
       Authorization: `token ${token}`,
@@ -64,16 +64,16 @@ const getComments = async ({
 
 const writeComment = async ({
   repositoryName,
-  id,
+  prId,
   token,
   comment,
 }: {
   repositoryName: string;
-  id: string;
+  prId: string;
   token: string;
   comment: string;
 }) => {
-  const url = `https://api.github.com/repos/${repositoryName}/issues/${id}/comments`;
+  const url = `https://api.github.com/repos/${repositoryName}/issues/${prId}/comments`;
   const options = {
     json: {
       body: comment,
@@ -103,31 +103,29 @@ const run = async (): Promise<void> => {
     throw new Error('Could not determine Build.Repository.Name');
   }
 
-  console.log('repositoryName:', repositoryName);
-
-  if (!getVariable('Build.SourceBranch') && !getVariable('Build.SourceBranch')!.startsWith('refs/pull/')) {
-    throw new Error('Could not determine Build.SourceBranch');
-  }
-  const id = getVariable('Build.SourceBranch')!.split('/')[2]!;
-  console.log('Build.SourceBranch:', id);
-
-  const commentToPost = getInput('comment');
-  if (!commentToPost) {
-    throw new Error('Could not determine comment');
-  }
-
-  const comments = await getComments({repositoryName, id, token});
-  const hasComment = comments.some((githubCommentEntry: any) => {
-    const hasText = githubCommentEntry.body.includes(commentToPost);
-
-    return hasText;
-  });
-
-  if (hasComment) {
-    console.log('Comment already exists, skipping add comment');
+  if (!getVariable('Build.SourceBranch') || !getVariable('Build.SourceBranch')!.startsWith('refs/pull/')) {
+    console.log('This doesnt look like its triggered from a PR, skipping add comment');
   } else {
-    console.log(`Wrote comment to ${repositoryName}/${id}`);
-    await writeComment({repositoryName, id, token, comment: commentToPost});
+    const prId = getVariable('Build.SourceBranch')!.split('/')[2]!;
+
+    const commentToPost = getInput('comment');
+    if (!commentToPost) {
+      throw new Error('Could not determine comment');
+    }
+
+    const comments = await getComments({repositoryName, prId, token});
+    const hasComment = comments.some((githubCommentEntry: any) => {
+      const hasText = githubCommentEntry.body.includes(commentToPost);
+
+      return hasText;
+    });
+
+    if (hasComment) {
+      console.log('Comment already exists, skipping add comment');
+    } else {
+      console.log(`Wrote comment to ${repositoryName}/pull/${prId}`);
+      await writeComment({repositoryName, prId, token, comment: commentToPost});
+    }
   }
 
   return Promise.resolve();
