@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "github-add-pr-comment-if-not-exist--dev",
   "name": "GitHub Add PR Comment if not exist (dev)",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "publisher": "haakemon",
   "targets": [
     {
@@ -22,27 +22,40 @@
   "files": [
     {
       "path": "src"
+    },
+    {
+      "path": "images/extension-icon.png",
+      "addressable": true
     }
   ],
   "repository": {
-      "type": "git",
-      "uri": "https://github.com/haakemon/az-pipeline-add-gh-comment-if-not-exist"
+    "type": "git",
+    "uri": "https://github.com/haakemon/az-pipeline-add-gh-comment-if-not-exist"
   },
   "links": {
-      "repository": {
-          "uri": "https://github.com/haakemon/az-pipeline-add-gh-comment-if-not-exist"
-      },
-      "issues": {
-          "uri": "https://github.com/haakemon/az-pipeline-add-gh-comment-if-not-exist/issues"
-      }
+    "repository": {
+      "uri": "https://github.com/haakemon/az-pipeline-add-gh-comment-if-not-exist"
+    },
+    "issues": {
+      "uri": "https://github.com/haakemon/az-pipeline-add-gh-comment-if-not-exist/issues"
+    }
   },
   "contributions": [
     {
       "id": "custom-comment-task",
       "type": "ms.vss-distributed-task.task",
-      "targets": ["ms.vss-distributed-task.tasks"],
+      "targets": ["ms.vss-distributed-task.tasks"]
+    },
+    {
+      "id": "hub",
+      "type": "ms.vss-web.hub",
+      "targets": ["ms.vss-code-web.code-hub-group"],
       "properties": {
-        "name": "src"
+        "name": "My Hub",
+        "iconAsset": "haakemon.github-add-pr-comment-if-not-exist--dev/images/extension-icon.png",
+        "includesData": {
+          "assets": ["haakemon.github-add-pr-comment-if-not-exist--dev/images/extension-icon.png"]
+        }
       }
     }
   ]
