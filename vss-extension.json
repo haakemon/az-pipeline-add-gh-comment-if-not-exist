@@ -1,6 +1,6 @@
 {
   "manifestVersion": 1,
-  "id": "github-add-pr-comment-if-not-exist",
+  "id": "github-add-pr-comment-if-not-exist_dev",
   "name": "GitHub Add PR Comment if not exist",
   "version": "0.1.16",
   "publisher": "haakemon",
