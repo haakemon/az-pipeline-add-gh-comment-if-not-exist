@@ -24,6 +24,18 @@
       "path": "src"
     }
   ],
+  "repository": {
+      "type": "git",
+      "uri": "https://github.com/haakemon/az-pipeline-add-gh-comment-if-not-exist"
+  },
+  "links": {
+      "repository": {
+          "uri": "https://github.com/haakemon/az-pipeline-add-gh-comment-if-not-exist"
+      },
+      "issues": {
+          "uri": "https://github.com/haakemon/az-pipeline-add-gh-comment-if-not-exist/issues"
+      }
+  },
   "contributions": [
     {
       "id": "custom-comment-task",
