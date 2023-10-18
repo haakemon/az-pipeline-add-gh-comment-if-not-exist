@@ -1,8 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
-  "id": "21022648-1578-407b-afa8-8ad3550ece5e",
-  "name": "GitHubAddCommentIfNotExistDEV",
-  "friendlyName": "Add GitHub Comment If Not Exist (dev)",
+  "id": "4c94658d-2415-4167-b9b9-3ebc60c155e4",
+  "name": "GitHubAddCommentIfNotExist",
+  "friendlyName": "Add GitHub Comment If Not Exist",
   "description": "Add comment to a GitHub PR, but only if the comment does not already exist.",
   "helpMarkDown": "",
   "category": "Utility",
@@ -14,8 +14,8 @@
   "preview": true,
   "version": {
     "Major": 0,
-    "Minor": 1,
-    "Patch": 26
+    "Minor": 2,
+    "Patch": 0
   },
   "demands": [],
   "inputs": [
