@@ -13,7 +13,7 @@ The repo and issue will be automatically resolved. If the task is running outsid
 Example configuration:
 
 ```yaml
-- task: AddGitHubCommentIfNotExist@0
+- task: GitHubAddCommentIfNotExist@0
   inputs:
     gitHubConnection: GitHubSC # Name of GitHub Service Connection
     comment: |
