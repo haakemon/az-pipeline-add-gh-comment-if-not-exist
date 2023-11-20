@@ -8,8 +8,8 @@
     "got": "13.0.0"
   },
   "devDependencies": {
-    "@types/node": "20.9.0",
-    "prettier": "3.0.3",
+    "@types/node": "20.9.1",
+    "prettier": "3.1.0",
     "tfx-cli": "0.16.0",
     "typescript": "5.2.2"
   }
