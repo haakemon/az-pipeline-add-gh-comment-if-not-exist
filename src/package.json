@@ -4,12 +4,12 @@
   "main": "main.js",
   "type": "module",
   "dependencies": {
-    "azure-pipelines-task-lib": "4.7.0",
+    "azure-pipelines-task-lib": "4.8.1",
     "got": "13.0.0"
   },
   "devDependencies": {
-    "@types/node": "20.11.0",
-    "prettier": "3.2.2",
+    "@types/node": "20.11.5",
+    "prettier": "3.2.4",
     "tfx-cli": "0.16.0",
     "typescript": "5.3.3"
   }
