@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
-  "id": "github-add-pr-comment-if-not-exist--dev",
-  "name": "GitHub Add PR Comment if not exist (dev)",
+  "id": "github-add-pr-comment-if-not-exist",
+  "name": "GitHub Add PR Comment if not exist",
   "version": "0.5.1",
   "publisher": "haakemon",
   "targets": [
@@ -9,6 +9,7 @@
       "id": "Microsoft.VisualStudio.Services"
     }
   ],
+  "galleryFlags": ["Public"],
   "description": "Add a comment to a GitHub PR only if the comment doesnt already exist.",
   "categories": ["Azure Pipelines"],
   "icons": {
