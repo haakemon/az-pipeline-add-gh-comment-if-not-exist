@@ -28,3 +28,7 @@ https://marketplace.visualstudio.com/items?itemName=haakemon.github-add-pr-comme
 marketplace management:
 
 https://marketplace.visualstudio.com/manage/publishers/haakemon
+
+azure devops dashboard
+
+https://aex.dev.azure.com/me?mkt=en-US
