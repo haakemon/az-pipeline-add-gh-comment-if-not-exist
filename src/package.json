@@ -8,9 +8,9 @@
     "got": "14.4.1"
   },
   "devDependencies": {
-    "@types/node": "20.14.10",
+    "@types/node": "20.14.11",
     "prettier": "3.3.3",
     "tfx-cli": "0.17.0",
-    "typescript": "5.5.3"
+    "typescript": "5.5.4"
   }
 }
