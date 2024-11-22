@@ -16,7 +16,7 @@ Creating a new release
 4. Execute ../pack.sh
 5. Upload ../build/* to marketplace as dev version
 6. Test and verify
-7. Merge changes to main, except id and name differences
+7. Merge changes to main, except id and name differences in ../vss-extension.json and ./task.json
 8. Execute ../pack.sh
 9. Upload ../build/* to marketplace as live version
 
