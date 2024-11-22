@@ -14,8 +14,8 @@
   "preview": true,
   "version": {
     "Major": 0,
-    "Minor": 5,
-    "Patch": 1
+    "Minor": 6,
+    "Patch": 0
   },
   "demands": [],
   "inputs": [
@@ -38,6 +38,10 @@
   "instanceNameFormat": "Adding GitHub comment (if it doesnt exist)",
   "execution": {
     "Node16": {
+      "target": "main.js",
+      "argumentFormat": ""
+    },
+    "Node20_1": {
       "target": "main.js",
       "argumentFormat": ""
     }
