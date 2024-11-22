@@ -11,6 +11,6 @@
     "@types/node": "22.9.1",
     "prettier": "3.3.3",
     "tfx-cli": "0.17.0",
-    "typescript": "5.6.3"
+    "typescript": "5.7.2"
   }
 }
