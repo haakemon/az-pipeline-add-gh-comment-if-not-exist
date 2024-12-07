@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@types/node": "22.10.1",
-    "prettier": "3.4.1",
+    "prettier": "3.4.2",
     "tfx-cli": "0.17.0",
     "typescript": "5.7.2"
   }
