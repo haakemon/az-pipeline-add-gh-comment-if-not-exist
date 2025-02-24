@@ -5,12 +5,12 @@
   "type": "module",
   "dependencies": {
     "azure-pipelines-task-lib": "4.17.3",
-    "got": "14.4.5"
+    "got": "14.4.6"
   },
   "devDependencies": {
-    "@types/node": "22.10.1",
-    "prettier": "3.4.1",
+    "@types/node": "22.13.5",
+    "prettier": "3.5.1",
     "tfx-cli": "0.17.0",
-    "typescript": "5.7.2"
+    "typescript": "5.7.3"
   }
 }
