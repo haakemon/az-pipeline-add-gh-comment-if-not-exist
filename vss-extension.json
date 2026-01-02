@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "github-add-pr-comment-if-not-exist",
   "name": "GitHub Add PR Comment if not exist",
-  "version": "0.6.0",
+  "version": "0.7.2",
   "publisher": "haakemon",
   "targets": [
     {

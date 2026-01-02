@@ -14,8 +14,8 @@
   "preview": true,
   "version": {
     "Major": 0,
-    "Minor": 6,
-    "Patch": 0
+    "Minor": 7,
+    "Patch": 2
   },
   "demands": [],
   "inputs": [
@@ -42,6 +42,10 @@
       "argumentFormat": ""
     },
     "Node20_1": {
+      "target": "main.js",
+      "argumentFormat": ""
+    },
+    "Node24": {
       "target": "main.js",
       "argumentFormat": ""
     }
