@@ -4,7 +4,7 @@
   "main": "main.js",
   "type": "module",
   "dependencies": {
-    "azure-pipelines-task-lib": "5.2.4",
+    "azure-pipelines-task-lib": "5.2.5",
     "got": "14.6.6"
   },
   "devDependencies": {
